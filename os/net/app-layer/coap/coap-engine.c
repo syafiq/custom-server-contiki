@@ -184,7 +184,7 @@ coap_receive(const coap_endpoint_t *src,
         } else {
           /* unreliable NON requests are answered with a NON as well */
           coap_init_message(response, COAP_TYPE_NON, CONTENT_2_05,
-                            coap_get_mid());
+                            message->mid);
           /* mirror token */
         }
         if(message->token_len) {
