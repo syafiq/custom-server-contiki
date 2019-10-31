@@ -52,12 +52,14 @@
 #include "sys/log.h"
 #define LOG_MODULE "App"
 #define LOG_LEVEL LOG_LEVEL_APP
+
 /*
  * Resources to be activated need to be imported through the extern keyword.
  * The build system automatically compiles the resources in the corresponding sub-directory.
  */
 extern coap_resource_t
   res_hello,
+  res_energy,
   res_mirror,
   res_chunks,
   res_separate,
@@ -98,6 +100,7 @@ PROCESS_THREAD(er_example_server, ev, data)
    * All static variables are the same for each URI path.
    */
   coap_activate_resource(&res_hello, "test/hello");
+  coap_activate_resource(&res_energy, "test/energy");
   coap_activate_resource(&res_mirror, "debug/mirror");
   coap_activate_resource(&res_chunks, "test/chunks");
   coap_activate_resource(&res_separate, "test/separate");
